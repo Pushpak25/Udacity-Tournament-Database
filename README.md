@@ -5,6 +5,7 @@
 Vagrant virtual machine is required for this project which you can find here: https://github.com/udacity/fullstack-nanodegree-vm 
 First, fork the fullstack-nanodegree-vm repository so that you have a version of your own within your Github account.
 Next clone your fullstack-nanodegree-vm repo to your local machine.
+Please refer to this document for more details https://docs.google.com/document/d/16IgOm4XprTaKxAa8w02y028oBECOoB1EI1ReddADEeY/pub?embedded=true
 
 # Understanding the purpose of each file
 <b>tournament.sql</b>  - this file is used to set up your database schema (the table representation of your data structure).
