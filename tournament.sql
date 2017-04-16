@@ -13,13 +13,6 @@ CREATE DATABASE tournament;
 /* Connect to the database */
 \c tournament;
 
--- DROP old Tables
-DROP VIEW IF EXISTS standings;
-DROP VIEW IF EXISTS player_wins;
-DROP VIEW IF EXISTS matches_per_player;
-DROP TABLE IF EXISTS players;
-DROP TABLE IF EXISTS matches;
-
 CREATE TABLE players (
 	player_id SERIAL primary key,
 	name varchar(255)
@@ -27,24 +20,26 @@ CREATE TABLE players (
 
 CREATE TABLE matches (
 	id SERIAL primary key,
-	player int references players(player_id),
-	opponent int references players(player_id),
+	winner int references players(player_id),
+	loser int references players(player_id),
 	result int
 );
 
 CREATE VIEW player_wins AS
-	SELECT players.player_id, COUNT(matches.opponent) AS n 
+	SELECT players.player_id, COUNT(matches.winner) AS n 
 	FROM players
-	LEFT JOIN (SELECT * FROM matches WHERE result>0) as matches
-	ON players.player_id = matches.player
+	LEFT JOIN matches
+	ON players.player_id = matches.winner
 	GROUP BY players.player_id;
 
 -- Count View shows number of matches for each Player
 CREATE VIEW matches_per_player AS
-	SELECT players.player_id, Count(matches.opponent) AS n 
+	SELECT players.player_id, (COUNT(mtl.loser)+COUNT(mtw.winner)) AS n 
 	FROM players
-	LEFT JOIN matches
-	ON players.player_id = matches.player
+	LEFT JOIN matches mtl
+	ON players.player_id = mtl.loser
+	LEFT JOIN matches mtw
+	ON players.player_id = mtw.winner
 	GROUP BY players.player_id;
 
 -- Standings View shows number of wins and matches for each Player
