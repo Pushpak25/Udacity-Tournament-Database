@@ -7,9 +7,11 @@ First, fork the fullstack-nanodegree-vm repository so that you have a version of
 Next clone your fullstack-nanodegree-vm repo to your local machine.
 
 # Understanding the purpose of each file
-tournament.sql  - this file is used to set up your database schema (the table representation of your data structure).
-tournament.py - this file is used to provide access to your database via a library of functions which can add, delete or query data in your database to another python program (a client program). Remember that when you define a function, it does not execute, it simply means the function is defined to run a specific set of instructions when called.
-tournament_test.py - this is a client program which will use your functions written in the tournament.py module. We've written this client program to test your implementation of functions in tournament.py
+<b>tournament.sql</b>  - this file is used to set up your database schema (the table representation of your data structure).
+<br/>
+<b>tournament.py</b> - this file is used to provide access to your database via a library of functions which can add, delete or query data in your database to another python program (a client program). Remember that when you define a function, it does not execute, it simply means the function is defined to run a specific set of instructions when called.
+<br/>
+</b>tournament_test.py</b> - this is a client program which will use your functions written in the tournament.py module. We've written this client program to test your implementation of functions in tournament.py
 
 # Functions Used
 The various functions in tournament.py and their corresponding test functions in tournament_test.py are:
@@ -20,9 +22,9 @@ The various functions in tournament.py and their corresponding test functions in
 # Example of a 16 Player Swiss Tournament:
 First round pairing is by random draw. For example, with 16 players they would be matched into 8 random pairs for the first round. For now, assume all games have a winner, and there are no draws.
 
-<em>After the first round</em>, there will be a group of 8 players with a score of 1 (win), and a group of 8 players with a score of 0 (loss). For the 2nd round, players in each scoring group will be paired against each other – 1’s versus 1’s and 0’s versus 0’s.
+<b>After the first round</b>, there will be a group of 8 players with a score of 1 (win), and a group of 8 players with a score of 0 (loss). For the 2nd round, players in each scoring group will be paired against each other – 1’s versus 1’s and 0’s versus 0’s.
 <br/>
-<em>After round 2</em>, there will be three scoring groups:
+<b>After round 2</b>, there will be three scoring groups:
 <br/>
 4 players who have won both games and have 2 points
 <br/>
@@ -30,7 +32,7 @@ First round pairing is by random draw. For example, with 16 players they would b
 <br/>
 4 players who have lost both games and have no points.
 <br/>
-<em>Again, for round 3</em>, players are paired with players in their scoring group. After the third round, the typical scoring groups will be:
+<b>Again, for round 3</b>, players are paired with players in their scoring group. After the third round, the typical scoring groups will be:
 <br/>
 2 players who have won 3 games (3 points)
 <br/>
