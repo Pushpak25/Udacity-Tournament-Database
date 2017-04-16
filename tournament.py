@@ -79,7 +79,7 @@ def playerStandings():
     return standings
 
 
-def reportMatch(winner, loser, draw=None):
+def reportMatch(winner, loser):
     """Records the outcome of a single match between two players.
 
     Args:
@@ -87,21 +87,9 @@ def reportMatch(winner, loser, draw=None):
       loser:  the id number of the player who lost
     """
     db, cursor = connect()
-    if draw:
-        cursor.execute(
-            "INSERT INTO matches (player,opponent,result)\
-            VALUES (%s,%s,1)", (winner, loser))
-        cursor.execute(
-            "INSERT INTO matches (player,opponent,result)\
-            VALUES (%s,%s,1)", (loser, winner))
-    else:
-        cursor.execute(
-            "INSERT INTO matches (player,opponent,result)\
-            VALUES (%s,%s,1)", (winner, loser))
-        cursor.execute(
-            "INSERT INTO matches (player,opponent,result)\
-            VALUES (%s,%s,0)", (loser, winner))
-
+    cursor.execute(
+        "INSERT INTO matches (winner,loser)\
+        VALUES (%s,%s)", (winner, loser))
     db.commit()
     db.close()
 
@@ -124,10 +112,7 @@ def swissPairings():
     pair = []
 
     db, cursor = connect()
-    query = ("SELECT player_id, name \
-                FROM standings ORDER BY wins DESC;")
-    cursor.execute(query)
-    standing_list = cursor.fetchall()
+    standing_list = playerStandings()
 
     if len(standing_list) % 2 == 0:
         for i in range(0, len(standing_list), 2):
