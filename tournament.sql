@@ -22,7 +22,6 @@ CREATE TABLE matches (
 	id SERIAL primary key,
 	winner int references players(player_id),
 	loser int references players(player_id),
-	result int
 );
 
 CREATE VIEW player_wins AS
