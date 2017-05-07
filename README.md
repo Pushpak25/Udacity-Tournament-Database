@@ -5,8 +5,32 @@
 Vagrant virtual machine is required for this project which you can find here: https://github.com/udacity/fullstack-nanodegree-vm 
 First, fork the fullstack-nanodegree-vm repository so that you have a version of your own within your Github account.
 Next clone your fullstack-nanodegree-vm repo to your local machine.
-Please refer to this document for more details https://docs.google.com/document/d/16IgOm4XprTaKxAa8w02y028oBECOoB1EI1ReddADEeY/pub?embedded=true
+<br/>
+To use the Vagrant virtual machine, navigate to the full-stack-nanodegree-vm/tournament directory in the terminal, then use the command vagrant up (powers on the virtual machine) followed by vagrant ssh (logs into the virtual machine).  
+<br/>
+In the command line, first run tournament.sql file to connect to the database and create tables using command
+'''
+$ psql -f tournament.sql
+'''
+<br/>
 
+To run the series of tests defined in this test suite, run the program from the command line 
+'''
+$ python tournament_test.py
+'''
+<br/>
+You should be able to see the following output once all your tests have passed:
+vagrant@vagrant-ubuntu-trusty-32:/vagrant/tournament$ python tournament_test.py
+1. Old matches can be deleted.
+2. Player records can be deleted.
+3. After deleting, countPlayers() returns zero.
+4. After registering a player, countPlayers() returns 1.
+5. Players can be registered and deleted.
+6. Newly registered players appear in the standings with no matches.
+7. After a match, players have updated standings.
+8. After one match, players with one win are paired.
+Success!  All tests pass!
+<br/>
 # Understanding the purpose of each file
 <b>tournament.sql</b>  - this file is used to set up your database schema (the table representation of your data structure).
 <br/>
