@@ -20,7 +20,7 @@ $ python tournament_test.py
 ```
 <br/>
 You should be able to see the following output once all your tests have passed:
-</br>
+<br/>
 vagrant@vagrant-ubuntu-trusty-32:/vagrant/tournament$ python tournament_test.py
 <ol>
 <li>Old matches can be deleted.</li>
@@ -34,6 +34,7 @@ vagrant@vagrant-ubuntu-trusty-32:/vagrant/tournament$ python tournament_test.py
 </ol>
 Success!  All tests pass!
 <br/>
+
 # Understanding the purpose of each file
 
 <b>tournament.sql</b>  - this file is used to set up your database schema (the table representation of your data structure).
